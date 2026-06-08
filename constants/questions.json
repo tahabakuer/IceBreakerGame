@@ -1,0 +1,49 @@
+{
+  "categories": [
+    {
+      "id": "game_dev",
+      "title": "Oyun Geliştirme",
+      "icon": "🕹️",
+      "questions": [
+        {
+          "id": "gd1",
+          "text": "Unity oyun motorunda script'ler hangi dille yazılır?",
+          "options": ["C++", "Java", "C#", "Python"],
+          "answer": "C#"
+        },
+        {
+          "id": "gd2",
+          "text": "Dünyanın en çok satan video oyunu hangisidir?",
+          "options": ["GTA V", "Minecraft", "Tetris", "PUBG"],
+          "answer": "Minecraft"
+        }
+      ]
+    },
+    {
+      "id": "pop_culture",
+      "title": "Popüler Kültür",
+      "icon": "🍿",
+      "questions": [
+        {
+          "id": "pc1",
+          "text": "Inception ve Interstellar filmlerinin yönetmeni kimdir?",
+          "options": ["Christopher Nolan", "Quentin Tarantino", "Steven Spielberg", "Martin Scorsese"],
+          "answer": "Christopher Nolan"
+        }
+      ]
+    },
+    {
+      "id": "history",
+      "title": "Tarih",
+      "icon": "📜",
+      "questions": [
+        {
+          "id": "h1",
+          "text": "İstanbul hangi yıl fethedilmiştir?",
+          "options": ["1071", "1299", "1453", "1517"],
+          "answer": "1453"
+        }
+      ]
+    }
+  ]
+}
