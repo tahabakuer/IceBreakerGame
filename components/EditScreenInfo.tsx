@@ -1,77 +1,70 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-
-import { ExternalLink } from './ExternalLink';
-import { MonoText } from './StyledText';
-import { Text, View } from './Themed';
-
-import Colors from '@/constants/Colors';
+import { StyleSheet, View, Text } from 'react-native';
+import { FLIPSIDE_THEME } from '@/constants/theme';
 
 export default function EditScreenInfo({ path }: { path: string }) {
   return (
-    <View>
-      <View style={styles.getStartedContainer}>
-        <Text
-          style={styles.getStartedText}
-          lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)">
-          Open up the code for this screen:
-        </Text>
-
-        <View
-          style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
-          darkColor="rgba(255,255,255,0.05)"
-          lightColor="rgba(0,0,0,0.05)">
-          <MonoText>{path}</MonoText>
-        </View>
-
-        <Text
-          style={styles.getStartedText}
-          lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)">
-          Change any of the text, save the file, and your app will automatically update.
+    <View style={styles.container}>
+      <View style={styles.card}>
+        <Text style={styles.title}>FLIPSIDE v1.0.0</Text>
+        <Text style={styles.description}>
+          A brutalist social deduction interaction matrix. Align with the collective subconscious or risk absolute isolation.
         </Text>
       </View>
 
-      <View style={styles.helpContainer}>
-        <ExternalLink
-          style={styles.helpLink}
-          href="https://docs.expo.io/get-started/create-a-new-app/#opening-the-app-on-your-phonetablet">
-          <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
-            Tap here if your app doesn't automatically update after making changes
-          </Text>
-        </ExternalLink>
+      <View style={styles.footer}>
+        <Text style={styles.footerText}>SYSTEM LOCATION</Text>
+        <Text style={styles.pathText}>{path}</Text>
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  getStartedContainer: {
+  container: {
     alignItems: 'center',
-    marginHorizontal: 50,
+    backgroundColor: FLIPSIDE_THEME.colors.background,
+    padding: 24,
   },
-  homeScreenFilename: {
-    marginVertical: 7,
+  card: {
+    width: '100%',
+    backgroundColor: FLIPSIDE_THEME.colors.surface,
+    borderWidth: 1,
+    borderColor: FLIPSIDE_THEME.colors.border,
+    borderRadius: 8,
+    padding: 20,
+    marginBottom: 24,
   },
-  codeHighlightContainer: {
-    borderRadius: 3,
-    paddingHorizontal: 4,
+  title: {
+    color: FLIPSIDE_THEME.colors.textPrimary,
+    fontSize: 16,
+    fontWeight: '900',
+    letterSpacing: 2,
+    marginBottom: 10,
   },
-  getStartedText: {
-    fontSize: 17,
-    lineHeight: 24,
-    textAlign: 'center',
+  description: {
+    color: FLIPSIDE_THEME.colors.textSecondary,
+    fontSize: 13,
+    lineHeight: 20,
+    fontWeight: '500',
   },
-  helpContainer: {
-    marginTop: 15,
-    marginHorizontal: 20,
+  footer: {
     alignItems: 'center',
   },
-  helpLink: {
-    paddingVertical: 15,
+  footerText: {
+    color: FLIPSIDE_THEME.colors.textMuted,
+    fontSize: 9,
+    fontWeight: 'bold',
+    letterSpacing: 3,
+    marginBottom: 6,
   },
-  helpLinkText: {
-    textAlign: 'center',
+  pathText: {
+    color: FLIPSIDE_THEME.colors.textSecondary,
+    fontSize: 11,
+    fontFamily: 'Courier',
+    backgroundColor: FLIPSIDE_THEME.colors.surfaceVariant,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 4,
   },
 });
