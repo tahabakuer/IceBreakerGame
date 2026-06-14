@@ -1,0 +1,132 @@
+SORU HAVUZU STANDARTLARI:
+  1. Her soru maksimum 80 karakter olmalıdır.
+  2. Her kategori altında her tur için: 2 EASY, 1 GENERAL, 2 EXPERT soru bulunmalıdır.
+  3. Zorluk seviyeleri: 'EASY' (Kolay/Temel), 'GENERAL' (Genel Kültür), 'EXPERT' (Uzmanlık).
+  4. Her soru bir bilgi sorusu formatında olmalı (işaret eden değil, cevaplanabilir olmalı).
+
+QUIZ QUESTION FACTORY – MİMARİ ÖZET (v1)
+1. CORE DATA MODEL (JSON SCHEMA)
+{
+  "id": "string",
+  "category": "string",
+  "subcategory": "string",
+  "difficulty": 1 | 2 | 3,
+  "question": "string (max 80 chars)",
+  "options": ["string", "string", "string", "string"],
+  "correctAnswerIndex": 0 | 1 | 2 | 3,
+  "explanation": "string",
+  "tags": ["string"],
+  "questionType": "MCQ",
+  "language": "tr",
+  "sourceType": "generated | dataset | hybrid"
+}
+2. TEMPLATE ENGINE
+
+Statik şablonlar yerine değişkenli yapı:
+
+{
+  "template": "FOOTBALL_PLAYER_TO_TEAM",
+  "variables": {
+    "player": "string"
+  }
+}
+
+Template örneği:
+
+"{player} hangi takımda oynamıştır?"
+
+Amaç:
+
+LLM’e kontrollü yaratıcılık alanı vermek
+soru çeşitliliğini artırmak
+3. DIFFICULTY SYSTEM
+
+Integer tabanlı:
+
+EASY = 1
+GENERAL = 2
+EXPERT = 3
+
+Kullanım:
+
+scoring sistemi
+adaptive difficulty
+batch dağılım kontrolü
+4. LLM GENERATION RULES (SYSTEM PROMPT)
+
+Temel kurallar:
+
+Sadece JSON output
+4 seçenek zorunlu
+1 doğru cevap
+max 80 karakter soru
+distractor’lar kategori içinden seçilmeli
+difficulty’e göre bilişsel yük değişmeli
+correct answer index rastgele dağılmalı
+markdown yasak
+5. DISTRACTOR ENGINE (KRİTİK)
+
+Kurallar:
+
+aynı kategori içinde olmalı
+semantik olarak yakın olmalı
+EASY: bariz yanlışlar
+EXPERT: birbirine çok yakın seçenekler
+rastgele/ilişkisiz cevap yasak
+6. BATCH GENERATION SYSTEM
+{
+  "category": "string",
+  "subcategory": "string",
+  "difficultyDistribution": {
+    "EASY": 2,
+    "GENERAL": 1,
+    "EXPERT": 2
+  },
+  "constraints": {
+    "maxQuestionLength": 80,
+    "language": "tr"
+  },
+  "total": 5
+}
+
+Batch mantığı:
+
+kategori bazlı üretim
+küçük batch’ler (5–10 soru)
+atomic generation
+7. MODEL STRATEGY
+GPT-4.1 → kalite üretimi
+GPT-4o-mini → batch üretimi
+(opsiyonel) validator model → kontrol katmanı
+8. VALIDATION LAYER (ÖNERİLEN)
+
+Kontroller:
+
+JSON valid mi
+4 seçenek var mı
+correctAnswerIndex geçerli mi
+duplicate answer var mı
+soru ≤ 80 karakter mi
+distractor tutarlılığı
+9. OVERALL PIPELINE
+Category Input
+→ Template Selection
+→ Variable Injection
+→ LLM Generation
+→ JSON Validation
+→ Quality Check
+→ (Fail → Regeneration Loop)
+→ DB Storage
+10. GENEL MİMARİ TANIMI
+
+Bu sistem:
+
+“LLM tabanlı quiz generator” değil
+“controlled knowledge generation engine”dir.
+
+Amaç:
+
+ölçeklenebilir soru üretimi
+tutarlı veri yapısı
+oyun içi dengeli difficulty
+otomatik içerik fabrikası

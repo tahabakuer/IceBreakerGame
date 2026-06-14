@@ -6,42 +6,39 @@
       "icon": "🕹️",
       "questions": [
         {
-          "id": "gd1",
+          "id": "gd_e1",
+          "difficulty": "EASY",
           "text": "Unity oyun motorunda script'ler hangi dille yazılır?",
           "options": ["C++", "Java", "C#", "Python"],
           "answer": "C#"
         },
         {
-          "id": "gd2",
+          "id": "gd_e2",
+          "difficulty": "EASY",
+          "text": "FPS oyunlarında oyuncunun görüş açısına ne ad verilir?",
+          "options": ["FOV", "DPI", "HUD", "RPG"],
+          "answer": "FOV"
+        },
+        {
+          "id": "gd_g1",
+          "difficulty": "GENERAL",
           "text": "Dünyanın en çok satan video oyunu hangisidir?",
           "options": ["GTA V", "Minecraft", "Tetris", "PUBG"],
           "answer": "Minecraft"
-        }
-      ]
-    },
-    {
-      "id": "pop_culture",
-      "title": "Popüler Kültür",
-      "icon": "🍿",
-      "questions": [
+        },
         {
-          "id": "pc1",
-          "text": "Inception ve Interstellar filmlerinin yönetmeni kimdir?",
-          "options": ["Christopher Nolan", "Quentin Tarantino", "Steven Spielberg", "Martin Scorsese"],
-          "answer": "Christopher Nolan"
-        }
-      ]
-    },
-    {
-      "id": "history",
-      "title": "Tarih",
-      "icon": "📜",
-      "questions": [
+          "id": "gd_x1",
+          "difficulty": "EXPERT",
+          "text": "Unreal Engine hangi programlama dilini temel alır?",
+          "options": ["C#", "C++", "Java", "Rust"],
+          "answer": "C++"
+        },
         {
-          "id": "h1",
-          "text": "İstanbul hangi yıl fethedilmiştir?",
-          "options": ["1071", "1299", "1453", "1517"],
-          "answer": "1453"
+          "id": "gd_x2",
+          "difficulty": "EXPERT",
+          "text": "Oyunlarda gölge hesaplaması için kullanılan teknik hangisidir?",
+          "options": ["Ray Tracing", "V-Sync", "Aliasing", "Mipmapping"],
+          "answer": "Ray Tracing"
         }
       ]
     }
