@@ -1,7 +1,3 @@
-Anladım, odak noktamızı "Engine" (arka plan motoru) olmaktan çıkarıp, oyuncular için "Party Quiz Game" deneyimine çeviriyoruz. Bu durumda README, teknik bir dokümantasyondan çok "Oyun Hakkında" sayfası gibi hissettirmeli.
-
-İşte oyunun için hazırladığım, oyuncuları heyecanlandıracak "Flipside Quiz" README şablonu:
-
 🎮 Flipside Quiz
 "Sıradan bir trivia değil, sosyal bir meydan okuma!"
 
